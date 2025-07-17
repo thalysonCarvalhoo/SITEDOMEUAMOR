@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Meu Amor ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe6f0, #fff0f5);
+      color: #5a2a5a;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #ffccda;
+      color: #8a245f;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      padding: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .surprises {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .box {
+      display: inline-block;
+      margin: 1rem;
+      padding: 1rem 2rem;
+      background-color: #fff0f5;
+      border: 2px dashed #d63384;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      max-width: 200px;
+    }
+
+    .box:hover {
+      background-color: #ffd6e0;
+    }
+
+    .hidden-message {
+      display: none;
+      margin-top: 1rem;
+      color: #a0255a;
+      font-weight: bold;
+    }
+
+    .carousel {
+      background-color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .carousel h2 {
+      margin-bottom: 1rem;
+    }
+
+    .reason {
+      display: none;
+      font-size: 1.3rem;
+      margin: 1rem auto;
+      max-width: 600px;
+    }
+
+    .reason.active {
+      display: block;
+    }
+
+    .carousel button {
+      background-color: #ff8fb1;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #ffccda;
+      color: #5a2a5a;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Para Minha Namorada ❤️</h1>
+    <p>Você é meu presente mais bonito. Te amo!</p>
+  </header>
+
+  <section class="gallery">
+    <!-- Substitua os links abaixo pelas suas fotos -->
+    <img src="https://via.placeholder.com/200x200?text=Foto+1" alt="Foto 1" />
+    <img src="https://via.placeholder.com/200x200?text=Foto+2" alt="Foto 2" />
+    <img src="https://via.placeholder.com/200x200?text=Foto+3" alt="Foto 3" />
+    <img src="https://via.placeholder.com/200x200?text=Foto+4" alt="Foto 4" />
+  </section>
+
+  <section class="surprises">
+    <h2>Caixinhas de Amor 💌</h2>
+    <div class="box" onclick="toggleMessage(1)">Clique aqui
+      <div class="hidden-message" id="msg1">Você ilumina meus dias!</div>
+    </div>
+    <div class="box" onclick="toggleMessage(2)">Outra surpresa
+      <div class="hidden-message" id="msg2">Seu sorriso é meu lugar favorito.</div>
+    </div>
+    <div class="box" onclick="toggleMessage(3)">Mais uma
+      <div class="hidden-message" id="msg3">Te amo mais a cada dia.</div>
+    </div>
+  </section>
+
+  <section class="carousel">
+    <h2>Motivos por que eu te amo 🥰</h2>
+    <div class="reason active" id="reason0">Você me entende até no silêncio.</div>
+    <div class="reason" id="reason1">Você me faz rir até nos piores dias.</div>
+    <div class="reason" id="reason2">Você é linda por dentro e por fora.</div>
+    <div class="reason" id="reason3">Nosso amor é minha força diária.</div>
+    <button onclick="prevReason()">⬅️</button>
+    <button onclick="nextReason()">➡️</button>
+  </section>
+
+  <footer>
+    Feito com 💖 por alguém que te ama.
+  </footer>
+
+  <script>
+    function toggleMessage(id) {
+      const msg = document.getElementById(`msg${id}`);
+      msg.style.display = msg.style.display === "block" ? "none" : "block";
+    }
+
+    let current = 0;
+    const reasons = document.querySelectorAll('.reason');
+
+    function showReason(index) {
+      reasons.forEach((r, i) => r.classList.toggle('active', i === index));
+    }
+
+    function prevReason() {
+      current = (current - 1 + reasons.length) % reasons.length;
+      showReason(current);
+    }
+
+    function nextReason() {
+      current = (current + 1) % reasons.length;
+      showReason(current);
+    }
+  </script>
+
+</body>
+</html>
